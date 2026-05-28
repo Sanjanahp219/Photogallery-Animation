@@ -40,18 +40,18 @@ img {max-width: 100%; display: block; }
 .play-img {width: 100%; height: 100%; object-fit: contain; mix-blend-mode: screen;filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5)); transition: transform 0.6s cubic-bezier(0.25, 1, 0.35, 1); }
  .stack-card.card-pos-0:hover .card-action-btn {opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
 .stack-card.card-pos-0:hover .play-img {transform: scale(1.05) rotate(5deg); }
-.card-pos-0 {transform: translate3d(0, 0, 0) rotate(-3.5deg) scale(1); opacity: 1; z-index: 10; filter: blur(0) brightness(1); pointer-events: auto; }
- .card-pos-1 {transform: translate3d(45px, 55px, -80px) rotate(1.2deg) scale(0.96); opacity: 0.94; z-index: 8; filter: blur(0.5px) brightness(0.85); pointer-events: none; }
- .card-pos-2 {transform: translate3d(90px, 110px, -160px) rotate(-1deg) scale(0.92); opacity: 0.86; z-index: 6; filter: blur(1px) brightness(0.75); pointer-events: none; }
- .card-pos-3 {transform: translate3d(135px, 165px, -240px) rotate(2.5deg) scale(0.88); opacity: 0.72; z-index: 4; filter: blur(1.5px) brightness(0.65); pointer-events: none; }
-.card-pos-4 {transform: translate3d(180px, 220px, -320px) rotate(-2deg) scale(0.84); opacity: 0.45; z-index: 2; filter: blur(2px) brightness(0.5); pointer-events: none; }
+.card-pos-0 {transform: translate3d(0, 0, 0) rotate(-3.5deg) scale(1); opacity: 1; z-index: 10; filter: none; pointer-events: auto; }
+ .card-pos-1 {transform: translate3d(45px, 55px, -80px) rotate(1.2deg) scale(0.96); opacity: 1; z-index: 8; filter: none; pointer-events: none; }
+ .card-pos-2 {transform: translate3d(90px, 110px, -160px) rotate(-1deg) scale(0.92); opacity: 1; z-index: 6; filter: none; pointer-events: none; }
+ .card-pos-3 {transform: translate3d(135px, 165px, -240px) rotate(2.5deg) scale(0.88); opacity: 1; z-index: 4; filter: none; pointer-events: none; }
+.card-pos-4 {transform: translate3d(180px, 220px, -320px) rotate(-2deg) scale(0.84); opacity: 1; z-index: 2; filter: none; pointer-events: none; }
 
 /* Staggered container hover fans */
 .card-stack:hover .card-pos-0 {transform: translate3d(-15px, -15px, 0) rotate(-6deg); }
 .card-stack:hover .card-pos-1 {transform: translate3d(55px, 60px, -70px) rotate(2.5deg); }
 .card-stack:hover .card-pos-2 {transform: translate3d(115px, 125px, -140px) rotate(-2deg); }
 .card-stack:hover .card-pos-3 {transform: translate3d(175px, 190px, -210px) rotate(4deg); }
-.card-stack:hover .card-pos-4 {transform: translate3d(235px, 255px, -280px) rotate(-3deg); opacity: 0.6; }
+.card-stack:hover .card-pos-4 {transform: translate3d(235px, 255px, -280px) rotate(-3deg); opacity: 1; }
 
 /* Direct active card hover morphs to square shape and positions centrally */
 .stack-card.card-pos-0:hover {
@@ -63,17 +63,17 @@ img {max-width: 100%; display: block; }
 }
 
 /* Hide all other stacked cards behind when active card is hovered */
-.card-stack:hover .stack-card:not(:hover) {
-    opacity: 0 !important;
+.card-stack:hover .stack-card:not(:hover):not(.card-pos-0):not(.card-fly-out) {
+    opacity: 1 !important;
     pointer-events: none !important;
     transform: translate3d(0, 0, -250px) scale(0.65) !important;
 }
 
 .card-fly-out {animation: flyOutCycle 0.85s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
 @keyframes flyOutCycle {  0% {transform: translate3d(0, 0, 0) rotate(-3.5deg) scale(1); opacity: 1; z-index: 20; }
-  45% {transform: translate3d(-340px, -60px, 120px) rotate(-22deg) scale(0.9); opacity: 0.85; z-index: 20; }
+  45% {transform: translate3d(-340px, -60px, 120px) rotate(-22deg) scale(0.9); opacity: 1; z-index: 20; }
   60% {z-index: 1;}
-  100% { transform: translate3d(180px, 220px, -320px) rotate(-2deg) scale(0.84); opacity: 0.45; z-index: 1; }
+  100% { transform: translate3d(180px, 220px, -320px) rotate(-2deg) scale(0.84); opacity: 1; z-index: 1; }
 }
 .editorial-footer {position: relative; z-index: 10; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(244, 240, 234, 0.08); padding-top: 20px; font-size: 0.75rem; font-weight: 500; }
 .swipe-indicator {color: var(--accent-emerald); letter-spacing: 2px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
@@ -111,11 +111,11 @@ img {max-width: 100%; display: block; }
   .card-stack:hover .card-pos-1 {transform: translate3d(35px, 45px, -50px) rotate(2deg); }
   .card-stack:hover .card-pos-2 {transform: translate3d(70px, 90px, -100px) rotate(-1.5deg); }
   .card-stack:hover .card-pos-3 {transform: translate3d(105px, 135px, -150px) rotate(3deg); }
-  .card-stack:hover .card-pos-4 {transform: translate3d(140px, 180px, -200px) rotate(-2.5deg); opacity: 0.6; }
+  .card-stack:hover .card-pos-4 {transform: translate3d(140px, 180px, -200px) rotate(-2.5deg); opacity: 1; }
   @keyframes flyOutCycle {  0% {transform: translate3d(0, 0, 0) rotate(-3.5deg) scale(1); opacity: 1; z-index: 20; }
-  45% {transform: translate3d(-240px, -40px, 100px) rotate(-22deg) scale(0.9); opacity: 0.85; z-index: 20; }
+  45% {transform: translate3d(-240px, -40px, 100px) rotate(-22deg) scale(0.9); opacity: 1; z-index: 20; }
   60% {z-index: 1; }
-  100% {transform: translate3d(120px, 160px, -240px) rotate(-2deg) scale(0.84); opacity: 0.45; z-index: 1; }}
+  100% {transform: translate3d(120px, 160px, -240px) rotate(-2deg) scale(0.84); opacity: 1; z-index: 1; }}
   .editorial-footer {flex-direction: column; gap: 10px; text-align: center; }
 }
 

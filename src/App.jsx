@@ -44,19 +44,19 @@ export default function App() {
     const activeCard = currentList[0];
     setFlyOutCardId(activeCard.id);
 
-    // 100ms: Move the active card to the bottom of the stack
+    // 1000ms (1s): Shift deck cards forward AND remove animation class concurrently to prevent double-animation glitches
     setTimeout(() => {
       setCards(prev => {
         const [first, ...rest] = prev;
         return [...rest, first];
       });
-    }, 100);
-
-    // 800ms: Complete the cycle and clean up classes
-    setTimeout(() => {
       setFlyOutCardId(null);
+    }, 1000);
+
+    // 1800ms: Complete the cycle and unlock user controls
+    setTimeout(() => {
       setIsAnimating(false);
-    }, 800);
+    }, 1800);
   };
 
   // Cycle Backward: Bottom card slides back to the front
