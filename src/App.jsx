@@ -238,7 +238,7 @@ export default function App() {
       </main>
 
       
-      <EditorialFooter />
+      {/* <EditorialFooter /> */}
     </div>
   );
 }
